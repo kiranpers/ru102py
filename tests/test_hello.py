@@ -28,3 +28,10 @@ def test_say_hello(redis_connection):
     value = redis_connection.get("hello")
     assert result is True
     assert value == "world"
+
+
+def test_write_read_key(redis_connection):
+    result = redis_connection.set("state", "texas")
+    value = redis_connection.get("state")
+    assert result is True
+    assert value == "texas"
